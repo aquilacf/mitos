@@ -173,7 +173,6 @@ thrift-ls = { command = "thrift-ls" }
 tilt = { command = "tilt", args = ["lsp", "start"] }
 tombi = { command = "tombi", args = ["lsp"] }
 ty = { command = "ty", args = ["server"] }
-typescript-native = { command = "tsc", args = ["--lsp", "--stdio"] }
 typespec = { command = "tsp-server", args = ["--stdio"] }
 vala-language-server = { command = "vala-language-server" }
 vale-ls = { command = "vale-ls" }
@@ -264,6 +263,42 @@ inlayHints.typeHints.hideClosureInitialization = false
 
 [language-server.rust-analyzer.config.files]
 watcher = "server"
+
+[language-server.tsc]
+command = "tsc"
+args = ["--lsp", "--stdio"]
+
+[language-server.tsc.config.typescript]
+inlayHints.enumMemberValues.enabled = true
+inlayHints.functionLikeReturnTypes.enabled = true
+inlayHints.parameterTypes.enabled = true
+inlayHints.parameterNames.enabled = "all"
+inlayHints.propertyDeclarationTypes.enabled = true
+inlayHints.variableTypes.enabled = true
+
+[language-server.tsc.config.javascript]
+inlayHints.enumMemberValues.enabled = true
+inlayHints.functionLikeReturnTypes.enabled = true
+inlayHints.parameterTypes.enabled = true
+inlayHints.parameterNames.enabled = "all"
+inlayHints.propertyDeclarationTypes.enabled = true
+inlayHints.variableTypes.enabled = true
+
+[language-server.tsc.config.tsx]
+inlayHints.enumMemberValues.enabled = true
+inlayHints.functionLikeReturnTypes.enabled = true
+inlayHints.parameterTypes.enabled = true
+inlayHints.parameterNames.enabled = "all"
+inlayHints.propertyDeclarationTypes.enabled = true
+inlayHints.variableTypes.enabled = true
+
+[language-server.tsc.config.jsx]
+inlayHints.enumMemberValues.enabled = true
+inlayHints.functionLikeReturnTypes.enabled = true
+inlayHints.parameterTypes.enabled = true
+inlayHints.parameterNames.enabled = "all"
+inlayHints.propertyDeclarationTypes.enabled = true
+inlayHints.variableTypes.enabled = true
 
 [language-server.typescript-language-server]
 command = "typescript-language-server"
@@ -1013,7 +1048,7 @@ shebangs = ["node"]
 roots = [ "package.json", "jsconfig.json" ]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [{ alternatives = ["typescript-native", "typescript-language-server", "vtsls"] }]
+language-servers = [{ alternatives = ["tsc", "typescript-language-server", "vtsls"] }]
 indent = { tab-width = 2, unit = "  " }
 
 [language.debugger]
@@ -1042,7 +1077,7 @@ file-types = ["jsx"]
 roots = [ "package.json", "jsconfig.json" ]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [{ alternatives = ["typescript-native", "typescript-language-server", "vtsls"] }]
+language-servers = [{ alternatives = ["tsc", "typescript-language-server", "vtsls"] }]
 indent = { tab-width = 2, unit = "  " }
 grammar = "javascript"
 
@@ -1056,7 +1091,7 @@ shebangs = ["deno", "bun", "ts-node"]
 roots = [ "package.json", "tsconfig.json" ]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [{ alternatives = ["typescript-native", "typescript-language-server", "vtsls"] }]
+language-servers = [{ alternatives = ["tsc", "typescript-language-server", "vtsls"] }]
 indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
@@ -1089,7 +1124,7 @@ file-types = ["tsx"]
 roots = [ "package.json", "tsconfig.json" ]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [{ alternatives = ["typescript-native", "typescript-language-server", "vtsls"] }]
+language-servers = [{ alternatives = ["tsc", "typescript-language-server", "vtsls"] }]
 indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
